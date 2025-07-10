@@ -1,3 +1,14 @@
+function getEmojiForNote(note) {
+    const emojiMap = {
+        'Too Expensive': '💰',
+        'Flood Zone': '🌊',
+        'Bad Area': '🚫',
+        'Bad Zoning': '🏗️',
+        'Attached': '📎',
+        'Shared Drive': '🚗'
+    };
+    return emojiMap[note] || '📝';
+}
 
 function injectNotes() {
     const cards = document.querySelectorAll('[href*="/listing/"]');
