@@ -62,7 +62,7 @@ button {
     background: #007acd;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 36px;
     padding: 14px 20px;
     font-size: 16px;
     font-weight: 600;
@@ -107,8 +107,8 @@ button:active {
     background: #f3f4f6;
     color: #374151;
     border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 10px 12px;
+    border-radius: 24px;
+    padding: 4px 6px;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;

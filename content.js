@@ -1,3 +1,4 @@
+
 function injectNotes() {
     const cards = document.querySelectorAll('[href*="/listing/"]');
 
@@ -38,44 +39,4 @@ function injectNotes() {
     });
 }
 
-function extractPropertyAddress() {
-    return document.title;
-}
-
-// Store property address
-function storePropertyData() {
-    const match = window.location.href.match(/listing\/(\d+)/);
-    if (!match) return;
-    
-    const listingId = match[1];
-    const address = extractPropertyAddress();
-    
-    chrome.storage.local.set({
-        [`address_${listingId}`]: address
-    });
-}
-
-function getEmojiForNote(note) {
-    const emojiMap = {
-        'Too expensive': '💰',
-        'Flood Zone': '🌊',
-        'Bad Area': '🚫',
-        'Bad Zoning': '🏗️',
-        'Attached': '📎',
-        'Shared Drive': '🚗'
-    };
-    
-    return emojiMap[note] || '📝';
-}
-
-// Run address extraction when page loads
-setTimeout(() => storePropertyData(), 500);
-
-// Watch for page changes (for SPA navigation)
-const observer = new MutationObserver(() => {
-    injectNotes();
-    // Extract address after page changes
-    setTimeout(() => storePropertyData(), 1000);
-});
-observer.observe(document.body, { childList: true, subtree: true });
 injectNotes();
