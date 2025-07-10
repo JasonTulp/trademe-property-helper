@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Property Notes</title>
+</head>
+<body>
+    <div class="container">
+        <h3><span class="note-icon">📝</span>Property Notes</h3>
+        
+        <!-- Flood Zone Status Section -->
+        <div id="flood-status" class="flood-status">
+            <div class="flood-header">
+                <span class="flood-icon">🌊</span>
+                <span>Flood Zone Check</span>
+                <div id="flood-loading" class="loading-spinner" style="display: none;">⏳</div>
+            </div>
+            <div id="flood-result" class="flood-result">
+                <span id="flood-text">Checking flood zone...</span>
+            </div>
+        </div>
+        
+        <div class="quick-options">
+            <div class="option-buttons">
+                <button type="button" class="option-btn" data-note="Too expensive">💰 Too expensive</button>
+                <button type="button" class="option-btn" data-note="Flood Zone">🌊 Flood Zone</button>
+                <button type="button" class="option-btn" data-note="Bad Area">🚫 Bad Area</button>
+                <button type="button" class="option-btn" data-note="Bad Zoning">🏗️ Bad Zoning</button>
+                <button type="button" class="option-btn" data-note="Attached">📎 Attached</button>
+                <button type="button" class="option-btn" data-note="Shared Drive">🚗 Shared Drive</button>
+            </div>
+        </div>
+        
+        <textarea id="note" placeholder="Add custom notes about this property..."></textarea>
+        <button id="save">
+            <span class="note-icon">💾</span>Save Note
+        </button>
+    </div>
+    <script src="flood-service.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
