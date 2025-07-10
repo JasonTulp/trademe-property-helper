@@ -3,7 +3,7 @@
   "name": "Trade Me Property Notes",
   "version": "1.0",
   "description": "Add personal notes to Trade Me listings and check flood zones",
-  "permissions": ["storage", "tabs", "scripting"],
+  "permissions": ["storage", "tabs", "scripting", "clipboardWrite"],
   "host_permissions": [
     "https://www.trademe.co.nz/*",
     "https://services.arcgisonline.co.nz/*",

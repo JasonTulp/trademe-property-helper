@@ -13,6 +13,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    // Handle map button clicks
+    document.querySelectorAll('.map-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const url = btn.getAttribute('data-url');
+            let addressToCopy = tab.title;
+            
+            // Special processing for zoning/planning map
+            if (url.includes('unitaryplanmaps.aucklandcouncil.govt.nz')) {
+                // Remove last 2 parts, remove commas, and make uppercase
+                const parts = addressToCopy.split(', ');
+                if (parts.length >= 3) {
+                    // Remove last 2 parts (Auckland City, Auckland)
+                    const processedParts = parts.slice(0, -2);
+                    addressToCopy = processedParts.join(' ').replace(/,/g, '').toUpperCase();
+                }
+            }
+            
+            // Copy processed address to clipboard
+            try {
+                await navigator.clipboard.writeText(addressToCopy);
+                console.log('Address copied to clipboard:', addressToCopy);
+            } catch (err) {
+                console.error('Failed to copy to clipboard:', err);
+            }
+            // Open map in new tab
+            chrome.tabs.create({ url: url });
+        });
+    });
+
     // Handle quick option button clicks
     document.querySelectorAll('.option-btn').forEach(btn => {
         btn.addEventListener('click', () => {
